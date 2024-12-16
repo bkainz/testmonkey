@@ -282,6 +282,14 @@ def inference(iterator, predictor, spacing, image_path, output_path, json_filena
     write_json_file(location=json_filename_lymphocytes, content=output_dict_lymphocytes)
     write_json_file(location=json_filename_monocytes, content=output_dict_monocytes)
     write_json_file(location=json_filename_inflammatory_cells, content=output_dict_inflammatory_cells)
+    
+    json_filename_lymphocytes = EVALUATION_PATH / "detected-lymphocytes.json"
+    json_filename_monocytes = EVALUATION_PATH / "detected-monocytes.json"
+    json_filename_inflammatory_cells = EVALUATION_PATH / "detected-inflammatory-cells.json"
+    write_json_file(location=json_filename_lymphocytes, content=output_dict_lymphocytes)
+    write_json_file(location=json_filename_monocytes, content=output_dict_monocytes)
+    write_json_file(location=json_filename_inflammatory_cells, content=output_dict_inflammatory_cells)     
+        
     print("Predictions saved.")
 
 
