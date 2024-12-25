@@ -172,11 +172,11 @@ WORKDIR /opt/app
 RUN mkdir -p /home/user/.config/Ultralytics/
 COPY --chown=user:user settings.json /home/user/.config/Ultralytics/ 
 COPY --chown=user:user inference.py /opt/app/
-COPY --chown=user:user init.py /opt/app/
+COPY --chown=user:user inference_large.py /opt/app/
 COPY --chown=user:user structures.py /opt/app/
 COPY --chown=user:user wsdetectron2.py /opt/app/
 COPY --chown=user:user biomp/ /opt/app/biomp/
 #COPY --chown=user:user cache /opt/app/
 
 USER user
-ENTRYPOINT ["/venv/bin/python3.10", "/opt/app/inference.py"]
+ENTRYPOINT ["/venv/bin/python3.10", "/opt/app/inference_large.py"]
