@@ -167,6 +167,7 @@ ENV https_proxy="http://proxy.rrze.uni-erlangen.de:80"
 RUN mkdir -p /home/user/.config/Ultralytics/
 COPY --chown=user:user settings.json /home/user/.config/Ultralytics/ 
 COPY --chown=user:user inference.py /opt/app/
+COPY --chown=user:user inference_large.py /opt/app/
 COPY --chown=user:user init.py /opt/app/
 COPY --chown=user:user structures.py /opt/app/
 COPY --chown=user:user wsdetectron2.py /opt/app/

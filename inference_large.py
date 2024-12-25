@@ -55,8 +55,8 @@ from PIL import Image
 import multiprocessing
 pool = multiprocessing.Pool(processes=1)
 
-BPARSET = 0.5
-YOLOT = 0.5
+BPARSET = 0.25
+YOLOT = 0.25
 
 # -------------------------------------------------------------------------
 # Global Paths
@@ -282,9 +282,9 @@ def fuse_points_with_confidence(
     json_a_path: str,
     json_b_path: str,
     output_json_path: str,
-    distance_threshold: float = 0.05,
+    distance_threshold: float = 0.005,
     weight_a: float = 1.0,
-    weight_b: float = 0.5
+    weight_b: float = 1.0
 ):
     """
     Fuses points from two JSON files A and B, each containing:
@@ -354,7 +354,7 @@ def fuse_points_with_confidence(
 
         if best_idx is not None:
             # We found a match in B
-            print("We found a match in B", a_xy[1], " ", b_xy[1])
+            print("We found a match in B", a_xy, " ", b_xy)
             used_b_indices.add(best_idx)
             b_point = points_b[best_idx]
             b_xy = b_point["point"][:2]
