@@ -161,8 +161,8 @@ RUN /venv/bin/python3.10 -m pip install pydicom nibabel
 RUN /venv/bin/python3.10 -m pip install SimpleITK
 
 #RUN /venv/bin/python3.10 /opt/app/init.py
-ENV HTTP_PROXY="http://proxy.rrze.uni-erlangen.de:80"
-ENV https_proxy="http://proxy.rrze.uni-erlangen.de:80"
+#ENV HTTP_PROXY="http://proxy.rrze.uni-erlangen.de:80"
+#ENV https_proxy="http://proxy.rrze.uni-erlangen.de:80"
 
 RUN mkdir -p /home/user/.config/Ultralytics/
 COPY --chown=user:user settings.json /home/user/.config/Ultralytics/ 
