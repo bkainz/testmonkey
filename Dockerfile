@@ -160,14 +160,18 @@ RUN git clone https://huggingface.co/microsoft/BiomedNLP-BiomedBERT-base-uncased
 RUN /venv/bin/python3.10 -m pip install pydicom nibabel
 RUN /venv/bin/python3.10 -m pip install SimpleITK
 
+
 #RUN /venv/bin/python3.10 /opt/app/init.py
 #ENV HTTP_PROXY="http://proxy.rrze.uni-erlangen.de:80"
 #ENV https_proxy="http://proxy.rrze.uni-erlangen.de:80"
+WORKDIR /opt/ml/model
+RUN curl -L -o model_state_dict.pt \
+    https://www.doc.ic.ac.uk/~bkainz/models/model_state_dict.pt
+WORKDIR /opt/app
 
 RUN mkdir -p /home/user/.config/Ultralytics/
 COPY --chown=user:user settings.json /home/user/.config/Ultralytics/ 
 COPY --chown=user:user inference.py /opt/app/
-COPY --chown=user:user inference_large.py /opt/app/
 COPY --chown=user:user init.py /opt/app/
 COPY --chown=user:user structures.py /opt/app/
 COPY --chown=user:user wsdetectron2.py /opt/app/
@@ -175,4 +179,4 @@ COPY --chown=user:user biomp/ /opt/app/biomp/
 #COPY --chown=user:user cache /opt/app/
 
 USER user
-ENTRYPOINT ["/venv/bin/python3.10", "/opt/app/inference_large.py"]
+ENTRYPOINT ["/venv/bin/python3.10", "/opt/app/inference.py"]
