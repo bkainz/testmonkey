@@ -18,17 +18,17 @@ def build_tokenizer(config_encoder):
     os.environ['TOKENIZERS_PARALLELISM'] = 'true'
     if config_encoder['TOKENIZER'] == 'clip':
         pretrained_tokenizer = config_encoder.get(
-            'PRETRAINED_TOKENIZER', './clip-vit-base-patch32'
+            'PRETRAINED_TOKENIZER', '/opt/ml/model/clip-vit-base-patch32'
         )
         tokenizer = CLIPTokenizer.from_pretrained(pretrained_tokenizer, local_files_only=True)
         tokenizer.add_special_tokens({'cls_token': tokenizer.eos_token})
     elif config_encoder['TOKENIZER'] == 'clip-fast':
         pretrained_tokenizer = config_encoder.get(
-            'PRETRAINED_TOKENIZER', './clip-vit-base-patch32'
+            'PRETRAINED_TOKENIZER', '/opt/ml/model/clip-vit-base-patch32'
         )
         tokenizer = CLIPTokenizerFast.from_pretrained(pretrained_tokenizer, from_slow=True, local_files_only=True)
     elif config_encoder['TOKENIZER'] == 'biomed-clip':
-        tokenizer = AutoTokenizer.from_pretrained("./BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext", local_files_only=True)
+        tokenizer = AutoTokenizer.from_pretrained("/opt/ml/model/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext", local_files_only=True)
     else:
         tokenizer = AutoTokenizer.from_pretrained(config_encoder['TOKENIZER'])
 
