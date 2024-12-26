@@ -2,10 +2,10 @@
 # 1) Consider switching to a runtime-based image if you do NOT need the full
 #    CUDA compiler (nvcc) for building custom CUDA extensions. If you do,
 #    you have to stay on `-devel`. But if not, try:
-# FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
+    FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
 #
 # Otherwise, stick to devel:
-    FROM nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
+    #FROM nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
 
     # Set timezone in one RUN statement, using noninteractive
     ENV DEBIAN_FRONTEND=noninteractive
