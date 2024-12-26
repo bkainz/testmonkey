@@ -152,7 +152,7 @@
     #     the entire build cache.
     WORKDIR /opt/app
     COPY --chown=user:user settings.json /home/user/.config/Ultralytics/
-    COPY --chown=user:user inference.py inference_large.py init.py structures.py wsdetectron2.py /opt/app/
+    COPY --chown=user:user inference.py inference_large.py structures.py wsdetectron2.py /opt/app/
     COPY --chown=user:user biomp/ /opt/app/biomp/
     
     # ------------------------------------------------------------------------------
