@@ -164,10 +164,10 @@ RUN /venv/bin/python3.10 -m pip install SimpleITK
 #RUN /venv/bin/python3.10 /opt/app/init.py
 #ENV HTTP_PROXY="http://proxy.rrze.uni-erlangen.de:80"
 #ENV https_proxy="http://proxy.rrze.uni-erlangen.de:80"
-WORKDIR /opt/ml/model
-RUN curl -L -o model_state_dict.pt \
-    https://www.doc.ic.ac.uk/~bkainz/models/model_state_dict.pt
-WORKDIR /opt/app
+#WORKDIR /opt/ml/model
+#RUN curl -L -o model_state_dict.pt \
+#    https://www.doc.ic.ac.uk/~bkainz/models/model_state_dict.pt
+#WORKDIR /opt/app
 
 RUN mkdir -p /home/user/.config/Ultralytics/
 COPY --chown=user:user settings.json /home/user/.config/Ultralytics/ 
