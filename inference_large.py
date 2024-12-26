@@ -55,8 +55,8 @@ from PIL import Image
 import multiprocessing
 pool = multiprocessing.Pool(processes=1)
 
-BPARSET = 0.25
-YOLOT = 0.25
+BPARSET = 0.2
+YOLOT = 0.2
 
 # -------------------------------------------------------------------------
 # Global Paths
@@ -405,7 +405,7 @@ def fuse_points_with_confidence(
             half_conf_b = {
                 "name": f"NoMatchB {len(fused_points)}",
                 "point": [b_xy[0], b_xy[1], b_spacing],
-                "probability": b_prob * 0.25
+                "probability": b_prob * 0.5
             }
             fused_points.append(half_conf_b)
 
